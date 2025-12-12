@@ -7,22 +7,32 @@ import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
 
-    const [state, handleSubmit] = useForm("https://formspree.io/f/mdkqyeol");
+    const [state, handleSubmit] = useForm("mdkqyeol");
 
 
-    if (state.succeeded) {
-    return (
-      <div className="relative inline-block">
+if (state.succeeded) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="w-full flex justify-center mt-12"
+    >
+      <div className="relative w-full max-w-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-20" />
         <div className="relative bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center">
           <p className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-            Thank You!
+            ✅ Success! Message Sent!
           </p>
           <p className="text-gray-200 mt-2">Your message has been sent successfully.</p>
+          <p className="text-slate-400 text-sm mt-4">
+            I'll get back to you within 24 hours.
+          </p>
         </div>
       </div>
-    );
-  }
+    </motion.div>
+  );
+}
 
 
 
