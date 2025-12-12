@@ -67,7 +67,7 @@ export default function Experience() {
                       <img 
                         src={exp.image} 
                         alt={exp.company}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-25"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent" />
                       {exp.type === "Current" && (
