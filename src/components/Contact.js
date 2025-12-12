@@ -2,8 +2,34 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Github, Send, MessageSquare,Facebook  } from 'lucide-react';
 // import { Button } from './ui/button';
+import { useForm, ValidationError } from '@formspree/react';
+
 
 export default function Contact() {
+
+    const [state, handleSubmit] = useForm("https://formspree.io/f/mdkqyeol");
+
+
+    if (state.succeeded) {
+    return (
+      <div className="relative inline-block">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-20" />
+        <div className="relative bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center">
+          <p className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+            Thank You!
+          </p>
+          <p className="text-slate-300 mt-2">Your message has been sent successfully.</p>
+        </div>
+      </div>
+    );
+  }
+
+
+
+
+
+
+
   const socialLinks = [
     {
       icon: Mail,
@@ -137,20 +163,74 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 text-center"
           >
-            <div className="relative inline-block">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-20" />
-              <div className="relative bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
-                <p className="text-slate-300 text-lg mb-2">
-                  Prefer traditional email?
-                </p>
-                <a 
-                  href="mailto:ahmimo53@gmail.com"
-                  className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
-                >
-                  ahmimo53@gmail.com
-                </a>
-              </div>
-            </div>
+
+
+
+<div className="relative inline-block">
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-20" />
+      <div className="relative bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Name Field */}
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+              Your Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              className="w-full px-4 py-3 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+          </div>
+
+          {/* Email Field */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              className="w-full px-4 py-3 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+          </div>
+
+          {/* Message Field */}
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              className="w-full px-4 py-3 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+            />
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="w-full py-3 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {state.submitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
           </motion.div>
         </div>
       </div>
