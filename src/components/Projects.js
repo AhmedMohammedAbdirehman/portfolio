@@ -115,13 +115,14 @@ export default function Projects() {
                         <Github className="w-4 h-4 mr-2" />
                         Code
                       </Button>
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 border border-cyan-500/30"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                              <Button
+                              size="sm"
+                              className="flex-1 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 border border-cyan-500/30"
+                              onClick={() => window.open("YOUR_DEPLOYED_PROJECT_URL", "_blank")}
+                              >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Live Demo
+                              </Button>
                     </div>
                   </div>
                 </div>
