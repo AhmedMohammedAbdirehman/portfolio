@@ -18,7 +18,7 @@ export default function Contact() {
           <p className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
             Thank You!
           </p>
-          <p className="text-slate-300 mt-2">Your message has been sent successfully.</p>
+          <p className="text-gray-200 mt-2">Your message has been sent successfully.</p>
         </div>
       </div>
     );
