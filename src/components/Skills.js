@@ -7,7 +7,7 @@ export default function Skills() {
     {
       icon: Code2,
       title: "Frontend Development",
-      skills: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"]
+      skills: ["React.js", "jQuery", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap5", "Responsive Design"]
     },
     {
       icon: Server,
@@ -17,7 +17,7 @@ export default function Skills() {
     {
       icon: Database,
       title: "Database & Data",
-      skills: ["MongoDB", "MySQL", "Data Analysis", "Data Visualization", "SQL"]
+      skills: ["MongoDB", "MySQL", "Data Analysis", "Data Visualization"]
     },
     {
       icon: Shield,
